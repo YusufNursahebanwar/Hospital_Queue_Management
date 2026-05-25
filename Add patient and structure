@@ -1,0 +1,75 @@
+#include <stdio.h>
+#include <string.h>
+
+#define MAX 50
+
+// Structure for Patient Details
+struct Patient
+{
+    int id;
+    char name[50];
+    int age;
+    char disease[50];
+};
+
+// Queue Array
+struct Patient queue[MAX];
+
+// Front and Rear for Queue
+int front = -1;
+int rear = -1;
+
+
+// Function to Check Queue Full
+int isFull()
+{
+    if(rear == MAX - 1)
+    {
+        return 1;
+    }
+    return 0;
+}
+
+
+// Function to Check Queue Empty
+int isEmpty()
+{
+    if(front == -1 || front > rear)
+    {
+        return 1;
+    }
+    return 0;
+}
+
+
+// Function to Add Patient
+void addPatient()
+{
+    if(isFull())
+    {
+        printf("\nQueue is Full!\n");
+        return;
+    }
+
+    // First Patient
+    if(front == -1)
+    {
+        front = 0;
+    }
+
+    rear++;
+
+    printf("\nEnter Patient ID: ");
+    scanf("%d", &queue[rear].id);
+
+    printf("Enter Patient Name: ");
+    scanf(" %[^\n]", queue[rear].name);
+
+    printf("Enter Patient Age: ");
+    scanf("%d", &queue[rear].age);
+
+    printf("Enter Disease: ");
+    scanf(" %[^\n]", queue[rear].disease);
+
+    printf("\nPatient Added Successfully!\n");
+}
