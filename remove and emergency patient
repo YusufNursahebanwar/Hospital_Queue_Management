@@ -1,0 +1,63 @@
+// Function for Emergency Patient
+void emergencyPatient()
+{
+    int i;
+
+    if(isFull())
+    {
+        printf("\nQueue is Full!\n");
+        return;
+    }
+
+    // First Patient
+    if(front == -1)
+    {
+        front = 0;
+        rear = 0;
+    }
+    else
+    {
+        rear++;
+
+        // Shift Patients Right
+        for(i = rear; i > front; i--)
+        {
+            queue[i] = queue[i - 1];
+        }
+    }
+
+    printf("\nEnter Emergency Patient ID: ");
+    scanf("%d", &queue[front].id);
+
+    printf("Enter Patient Name: ");
+    scanf(" %[^\n]", queue[front].name);
+
+    printf("Enter Patient Age: ");
+    scanf("%d", &queue[front].age);
+
+    printf("Enter Disease: ");
+    scanf(" %[^\n]", queue[front].disease);
+
+    printf("\nEmergency Patient Added Successfully!\n");
+}
+
+
+
+// Function to Remove Patient
+void removePatient()
+{
+    if(isEmpty())
+    {
+        printf("\nQueue is Empty!\n");
+        return;
+    }
+
+    printf("\nRemoved Patient Details\n");
+
+    printf("ID      : %d\n", queue[front].id);
+    printf("Name    : %s\n", queue[front].name);
+    printf("Age     : %d\n", queue[front].age);
+    printf("Disease : %s\n", queue[front].disease);
+
+    front++;
+}
