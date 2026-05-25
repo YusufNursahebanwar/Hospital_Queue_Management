@@ -1,0 +1,64 @@
+// Function to Display Patients
+void displayPatients()
+{
+    int i;
+
+    if(isEmpty())
+    {
+        printf("\nNo Patients in Queue!\n");
+        return;
+    }
+
+    printf("\n========== PATIENT QUEUE ==========\n");
+
+    for(i = front; i <= rear; i++)
+    {
+        printf("\nPatient Number : %d\n", i - front + 1);
+
+        printf("ID      : %d\n", queue[i].id);
+        printf("Name    : %s\n", queue[i].name);
+        printf("Age     : %d\n", queue[i].age);
+        printf("Disease : %s\n", queue[i].disease);
+
+        printf("-----------------------------------\n");
+    }
+}
+
+
+// Function to Search Patient
+void searchPatient()
+{
+    int id;
+    int i;
+    int found = 0;
+
+    if(isEmpty())
+    {
+        printf("\nQueue is Empty!\n");
+        return;
+    }
+
+    printf("\nEnter Patient ID to Search: ");
+    scanf("%d", &id);
+
+    for(i = front; i <= rear; i++)
+    {
+        if(queue[i].id == id)
+        {
+            printf("\nPatient Found!\n");
+
+            printf("ID      : %d\n", queue[i].id);
+            printf("Name    : %s\n", queue[i].name);
+            printf("Age     : %d\n", queue[i].age);
+            printf("Disease : %s\n", queue[i].disease);
+
+            found = 1;
+            break;
+        }
+    }
+
+    if(found == 0)
+    {
+        printf("\nPatient Not Found!\n");
+    }
+}
