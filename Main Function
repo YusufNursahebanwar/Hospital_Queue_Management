@@ -1,0 +1,56 @@
+// Main Function
+int main()
+{
+    int choice;
+
+    do
+    {
+        printf("\n");
+        printf("====================================\n");
+        printf("   HOSPITAL QUEUE MANAGEMENT SYSTEM \n");
+        printf("====================================\n");
+
+        printf("1. Add Patient\n");
+        printf("2. Remove Patient\n");
+        printf("3. Display Patients\n");
+        printf("4. Search Patient\n");
+        printf("5. Emergency Patient\n");
+        printf("6. Exit\n");
+
+        printf("\nEnter Your Choice: ");
+        scanf("%d", &choice);
+
+        switch(choice)
+        {
+            case 1:
+                addPatient();
+                break;
+
+            case 2:
+                removePatient();
+                break;
+
+            case 3:
+                displayPatients();
+                break;
+
+            case 4:
+                searchPatient();
+                break;
+
+            case 5:
+                emergencyPatient();
+                break;
+
+            case 6:
+                printf("\nProgram Closed Successfully!\n");
+                break;
+
+            default:
+                printf("\nInvalid Choice! Please Try Again.\n");
+        }
+
+    } while(choice != 6);
+
+    return 0;
+}
